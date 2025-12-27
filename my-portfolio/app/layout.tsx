@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Wilson Kevin Ngatia | Tech Professional",
   description: "Portfolio of Wilson Kevin Ngatia - Aspiring IT Professional, Tech Support Specialist, and Software Developer.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

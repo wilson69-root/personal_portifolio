@@ -118,7 +118,7 @@ const HomePage: FC = () => {
             🎯 View Projects
           </button>
           <a
-            href="/cv/Wilson CV.pdf"
+            href="/cv/Wilson_CV.pdf"
             download
             className="px-8 py-3 bg-white dark:bg-gray-800 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-xl shadow-md hover:bg-blue-50 dark:hover:bg-gray-700 hover:shadow-lg transform hover:-translate-y-0.5 transition-all font-medium"
           >
