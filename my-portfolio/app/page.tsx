@@ -50,12 +50,12 @@ const certifications = [
   {
     name: "AI for Software Engineering",
     provider: "Power Learn Project",
-    link: "#", // Replace with actual certificate link
+    link: "https://drive.google.com/file/d/1zYdQC0-tlDWpIIXwolYsTO1wH6K4ecnT/view?usp=drive_link",
   },
   {
     name: "Cloud Practitioner Certification",
     provider: "Ajira Digital Programme",
-    link: "#", // Replace with actual badge link
+    link: "https://www.credly.com/badges/168a06ee-38a1-4954-8ee2-69cebca130b9/public_url",
   },
 ];
 
@@ -100,7 +100,7 @@ const HomePage: FC = () => {
           Wilson Kevin Ngatia 🚀
         </h1>
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6 h-8">
-          <Typewriter text="Tech Professional" speed={100} />
+          <Typewriter text="Tech Professional" speed={90} />
         </h2>
         <p className="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400 mb-2">
           📍 Karatina, Nyeri, Kenya
