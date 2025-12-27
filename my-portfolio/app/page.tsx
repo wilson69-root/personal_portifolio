@@ -53,10 +53,16 @@ const certifications = [
     link: "https://drive.google.com/file/d/1zYdQC0-tlDWpIIXwolYsTO1wH6K4ecnT/view?usp=drive_link",
   },
   {
+    name: "ALX AI Starter Kit",
+    provider: "ALX africa",
+    link: "https://drive.google.com/file/d/1_qvME7CornVICjW070QlciiXMgYKehYV/view?usp=drive_link",
+  },
+  {
     name: "Cloud Practitioner Certification",
     provider: "Ajira Digital Programme",
     link: "https://www.credly.com/badges/168a06ee-38a1-4954-8ee2-69cebca130b9/public_url",
   },
+
 ];
 
 const HomePage: FC = () => {
@@ -196,8 +202,19 @@ const HomePage: FC = () => {
               rel="noopener noreferrer"
               className="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 hover:shadow-md transition-all border-l-4 border-blue-600 dark:border-blue-400"
             >
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">{cert.name}</h3>
-              <p className="text-gray-600 dark:text-gray-400">{cert.provider}</p>
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">{cert.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">{cert.provider}</p>
+                </div>
+                <span className="text-2xl">🔗</span>
+              </div>
+              <div className="text-blue-600 dark:text-blue-400 text-sm font-medium flex items-center gap-1 group-hover:underline">
+                View Certificate
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </div>
             </a>
           ))}
         </div>
