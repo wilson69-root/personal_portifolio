@@ -193,14 +193,14 @@ const HomePage: FC = () => {
 
       {/* Certifications Section */}
       <Section title="🎓 Certifications & Learning" className="py-16 bg-white dark:bg-gray-900">
-        <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
           {certifications.map((cert) => (
             <a
               key={cert.name}
               href={cert.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 hover:shadow-md transition-all border-l-4 border-blue-600 dark:border-blue-400"
+              className="w-full md:w-[calc(50%-1.5rem)] bg-white dark:bg-gray-700 rounded-xl shadow-sm p-6 hover:shadow-md transition-all border-l-4 border-blue-600 dark:border-blue-400 group flex flex-col"
             >
               <div className="flex justify-between items-start">
                 <div>
