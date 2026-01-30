@@ -12,10 +12,13 @@ const Typewriter: FC<TypewriterProps> = ({ text, speed = 100, className = "" }) 
 
   useEffect(() => {
     let index = 0;
+    setDisplayedText(""); // Reset on text change
+
     const intervalId = setInterval(() => {
-      setDisplayedText((prev) => prev + text.charAt(index));
-      index++;
-      if (index === text.length) {
+      if (index < text.length) {
+        index++;
+        setDisplayedText(text.slice(0, index));
+      } else {
         clearInterval(intervalId);
       }
     }, speed);

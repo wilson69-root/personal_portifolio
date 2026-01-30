@@ -1,3 +1,4 @@
+// ... imports
 import { type FC } from "react";
 
 type ProjectCardProps = {
@@ -6,6 +7,7 @@ type ProjectCardProps = {
   techStack: string[];
   githubLink: string;
   demoLink?: string;
+  image?: string; // Prepared for future image
 };
 
 const ProjectCard: FC<ProjectCardProps> = ({
@@ -16,38 +18,49 @@ const ProjectCard: FC<ProjectCardProps> = ({
   demoLink,
 }) => {
   return (
-    <div className="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 flex flex-col h-full hover:shadow-xl transform hover:-translate-y-1 transition-all border border-gray-100 dark:border-gray-600">
-      <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-3">{title}</h3>
-      <p className="text-gray-600 dark:text-gray-400 flex-grow mb-4 leading-relaxed">{description}</p>
-      <ul className="flex flex-wrap gap-2 mb-4">
-        {techStack.map((tech) => (
-          <li
-            key={tech}
-            className="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full px-3 py-1"
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
-      <div className="mt-auto flex gap-4">
-        <a
-          href={githubLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium text-sm hover:underline transition-colors"
-        >
-          🔗 GitHub
-        </a>
-        {demoLink && (
+    <div className="bg-white dark:bg-slate-800/80 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(99,102,241,0.1)] dark:shadow-none dark:hover:shadow-none transition-all duration-500 overflow-hidden flex flex-col h-full hover:-translate-y-2 group border border-transparent hover:border-indigo-100 dark:border-slate-700/50 relative">
+      <div className="p-8 flex flex-col h-full relative z-10">
+        <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+          {title}
+        </h3>
+
+        <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed flex-grow">
+          {description}
+        </p>
+
+        <div className="mb-8">
+          <div className="flex flex-wrap gap-2.5">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-3.5 py-1.5 bg-slate-50 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 text-sm font-semibold rounded-full border border-slate-100 dark:border-slate-600/50"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-auto flex gap-6 pt-6 border-t border-slate-100 dark:border-slate-700/50">
           <a
-            href={demoLink}
+            href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium text-sm hover:underline transition-colors"
+            className="flex items-center gap-2 text-base font-bold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
           >
-            🌐 Live Demo
+            <span className="text-xl">📦</span> Code
           </a>
-        )}
+          {demoLink && (
+            <a
+              href={demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-base font-bold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+            >
+              <span className="text-xl">🚀</span> Live Demo
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
