@@ -142,7 +142,7 @@ export default function ChatWidget() {
                                 {msg.role === "assistant" ? (
                                     <ReactMarkdown
                                         components={{
-                                            a: ({ node, ...props }) => (
+                                            a: ({ node, ...props }: any) => (
                                                 <a
                                                     {...props}
                                                     target="_blank"
@@ -150,10 +150,10 @@ export default function ChatWidget() {
                                                     className="underline font-semibold hover:text-indigo-200"
                                                 />
                                             ),
-                                            p: ({ node, ...props }) => <p {...props} className="mb-2 last:mb-0" />,
-                                            ul: ({ node, ...props }) => <ul {...props} className="list-disc pl-4 mb-2" />,
-                                            li: ({ node, ...props }) => <li {...props} className="mb-1" />,
-                                            strong: ({ node, ...props }) => <strong {...props} className="font-bold" />,
+                                            p: ({ node, ...props }: any) => <p {...props} className="mb-2 last:mb-0" />,
+                                            ul: ({ node, ...props }: any) => <ul {...props} className="list-disc pl-4 mb-2" />,
+                                            li: ({ node, ...props }: any) => <li {...props} className="mb-1" />,
+                                            strong: ({ node, ...props }: any) => <strong {...props} className="font-bold" />,
                                         }}
                                     >
                                         {msg.content}
