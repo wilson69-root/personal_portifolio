@@ -353,14 +353,16 @@ li::before {
         color: #000;
     }
 
-    color: #000;
-}
+    a {
+        text-decoration: none;
+        color: #000;
+    }
 
-.job-entry,
-.edu-entry,
-.project-entry,
-section {
-    break-inside: avoid;
-    page-break-inside: avoid;
-}
+    .job-entry,
+    .edu-entry,
+    .project-entry,
+    section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
 }

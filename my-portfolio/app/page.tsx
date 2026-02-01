@@ -173,7 +173,7 @@ const HomePage: FC = () => {
 
       {/* Work Experience Section */}
       <Section title="💼 Work Experience" className="py-32 relative">
-        <div className="absolute inset-0 bg-slate-50/50 dark:bg-slate-800/20 -skew-y-3 z-0 transform origin-top-left scale-110"></div>
+
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-indigo-500/10 transition-all p-10 border border-white/50 dark:border-slate-700/50">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-8">
