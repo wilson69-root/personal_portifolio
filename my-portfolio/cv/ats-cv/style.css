@@ -1,0 +1,360 @@
+/* Editorial Grade UI - Senior Design */
+
+/* Design Tokens */
+:root {
+    /* Semantic Colors - Minimalist & High Contrast */
+    --bg-app: #f2f2f2;
+    /* Lightest Gray - Desk Background */
+    --bg-paper: #ffffff;
+
+    --text-primary: #1a1a1a;
+    /* Nearly Black - Headings */
+    --text-body: #404040;
+    /* Dark Gray - Body */
+    --text-meta: #737373;
+    /* Muted Gray - Dates/Meta */
+    --text-subtle: #a3a3a3;
+    /* Light Gray - Decorative */
+
+    /* Accent - Only used for links/interactions */
+    --accent: #2563eb;
+    /* Royal Blue - Minimal use */
+
+    --border-light: #e5e5e5;
+
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+
+    /* Spacing Scale */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2.5rem;
+    --space-6: 3.5rem;
+}
+
+/* Base Reset & Typography */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-app);
+    font-family: var(--font-sans);
+    color: var(--text-body);
+    line-height: 1.65;
+    /* Generous leading for readability */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+/* The Page - Magazine Quality */
+.page-container {
+    background: var(--bg-paper);
+    width: 100%;
+    max-width: 210mm;
+    min-height: 297mm;
+    padding: 4rem 4rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    /* Soft, diffusive shadow */
+    position: relative;
+}
+
+/* Header - Asymmetrical & Impactful */
+header {
+    margin-bottom: var(--space-6);
+    border-bottom: 2px solid var(--text-primary);
+    /* Strong grounding line */
+    padding-bottom: var(--space-4);
+}
+
+h1 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.02em;
+}
+
+.job-title-header {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-meta);
+    margin-bottom: var(--space-4);
+}
+
+.contact-info {
+    display: flex;
+    gap: var(--space-4);
+    font-size: 0.9rem;
+    color: var(--text-body);
+    font-weight: 500;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.contact-item i {
+    color: var(--text-primary);
+    /* Strong icons */
+    font-size: 1rem;
+}
+
+.contact-item a {
+    color: var(--text-body);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* Sections - The Invisible Grid */
+section {
+    margin-bottom: var(--space-5);
+}
+
+/* Section Headings */
+h2 {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    display: block;
+    border-bottom: 1px solid var(--border-light);
+    /* Full width divider */
+    padding-bottom: var(--space-2);
+}
+
+/* Grid Layout for Entries */
+/* This aligns "Dates" on left column (25%) and "Content" on right (75%) */
+.job-entry,
+.edu-entry,
+.project-entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    /* Fixed width for dates */
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+    align-items: baseline;
+}
+
+.job-meta,
+.edu-meta,
+.project-meta {
+    /* These were flex containers, now we split them visually via grid */
+    display: contents;
+    /* Allows children to participate in the parent grid */
+}
+
+/* Dates Column */
+.job-meta .dates,
+.edu-meta .dates,
+.project-meta .dates {
+    grid-column: 1;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-meta);
+    font-weight: 500;
+    text-align: left;
+    margin-top: 0.2rem;
+    /* Visual alignment fix */
+}
+
+/* Content Column Container */
+.entry-content {
+    grid-column: 2;
+}
+
+/* Handle the case where I need to wrap title/company together in HTML for this grid to work perfectly. 
+   Since I can't easily change HTML structure to group them without complex RegEx, 
+   I will use a simpler layout that doesn't require "display: contents" on everything if HTML isn't 100% rigid.
+   
+   Wait, the HTML structure is: 
+   .job-entry > .job-meta (+dates) 
+              > .company-name
+              > ul
+   
+   Let's stick to a robust Flex/Margin approach that mimics grid for safety.
+*/
+
+.job-entry,
+.edu-entry,
+.project-entry {
+    display: block;
+    /* Reset grid to fallback */
+    padding-left: 160px;
+    /* Indent content */
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+/* Position Dates Absolute Left */
+.dates {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 140px;
+    font-size: 0.85rem;
+    color: var(--text-meta);
+    font-weight: 500;
+    font-feature-settings: "tnum";
+    text-align: right;
+    /* Right align dates against the content gutter */
+}
+
+/* Title Styling */
+.job-meta span:first-child,
+.edu-meta span:first-child,
+.project-title {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: var(--space-1);
+}
+
+.company-name,
+.project-subtitle {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-body);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+}
+
+/* List Styling */
+ul {
+    list-style: none;
+    margin-top: var(--space-2);
+}
+
+li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--text-body);
+}
+
+/* Elegant Dash Bullet */
+li::before {
+    content: '—';
+    /* Em dash */
+    position: absolute;
+    left: 0;
+    color: var(--text-subtle);
+}
+
+/* Skills - Clean Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    margin-top: var(--space-4);
+}
+
+.skills-column {
+    display: contents;
+    /* Flattens structure */
+}
+
+.skills-column h3 {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: right;
+    margin-top: 0.4rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.skills-list li {
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-body);
+    background: none;
+    border: none;
+    display: inline-block;
+}
+
+.skills-list li::before {
+    content: none;
+}
+
+/* Separator for skills in inline list style feels nice */
+.skills-list li:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.6rem;
+    color: var(--text-subtle);
+}
+
+/* Summary Text */
+#summary p {
+    font-family: var(--font-serif);
+    /* Serif for summary feels personal */
+    font-size: 1.1rem;
+    color: var(--text-body);
+    line-height: 1.8;
+    max-width: 90%;
+    /* Optimal reading line length */
+}
+
+/* Print Optimization */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+        display: block;
+    }
+
+    .page-container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+        min-height: auto;
+    }
+
+    h2 {
+        border-bottom-color: #000;
+    }
+
+    .dates {
+        color: #000;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+}

@@ -7,6 +7,7 @@ import ProjectCard from "../components/ProjectCard";
 import Navbar from "../components/Navbar";
 import ScrollToTop from "../components/ScrollToTop";
 import FadeIn from "../components/FadeIn";
+import ChatWidget from "../components/ChatWidget";
 
 
 const skills = [
@@ -150,12 +151,12 @@ const HomePage: FC = () => {
             </button>
 
             <a
-              href="/cv/Wilson_CV.pdf"
-              download
+              href="/cv/index.html"
+              target="_blank"
               className="group px-8 py-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-full font-bold text-lg shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all duration-300 flex items-center gap-2 justify-center"
             >
-              <span>Download CV</span>
-              <span className="group-hover:translate-y-1 transition-transform">↓</span>
+              <span>View CV</span>
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>
         </div>
@@ -306,6 +307,7 @@ const HomePage: FC = () => {
       </footer>
 
       <ScrollToTop />
+      <ChatWidget />
     </main>
   );
 };

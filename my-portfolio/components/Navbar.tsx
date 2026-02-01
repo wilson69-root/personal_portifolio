@@ -42,6 +42,14 @@ const Navbar: FC<NavbarProps> = ({ isDark, onToggleTheme }) => {
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 transition-all group-hover:w-full"></span>
             </a>
+            <a
+              href="/cv/index.html"
+              target="_blank"
+              className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors relative group"
+            >
+              CV
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-600 dark:bg-indigo-400 transition-all group-hover:w-full"></span>
+            </a>
           </div>
 
           <button
