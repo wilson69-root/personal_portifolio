@@ -3,24 +3,26 @@
 /* Design Tokens */
 :root {
     /* Semantic Colors - Minimalist & High Contrast */
-    --bg-app: #f2f2f2;
-    /* Lightest Gray - Desk Background */
+    --bg-app: #f4f4f5;
+    /* Zinc-100 */
     --bg-paper: #ffffff;
 
-    --text-primary: #1a1a1a;
-    /* Nearly Black - Headings */
-    --text-body: #404040;
-    /* Dark Gray - Body */
-    --text-meta: #737373;
-    /* Muted Gray - Dates/Meta */
-    --text-subtle: #a3a3a3;
-    /* Light Gray - Decorative */
+    --text-primary: #18181b;
+    /* Zinc-900 */
+    --text-body: #3f3f46;
+    /* Zinc-700 */
+    --text-meta: #71717a;
+    /* Zinc-500 */
+    --text-subtle: #a1a1aa;
+    /* Zinc-400 */
 
     /* Accent - Only used for links/interactions */
     --accent: #2563eb;
-    /* Royal Blue - Minimal use */
+    /* Royal Blue */
+    --accent-hover: #1d4ed8;
 
-    --border-light: #e5e5e5;
+    --border-light: #e4e4e7;
+    /* Zinc-200 */
 
     /* Typography */
     --font-serif: 'Playfair Display', serif;
@@ -33,6 +35,11 @@
     --space-4: 1.5rem;
     --space-5: 2.5rem;
     --space-6: 3.5rem;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    --shadow-floating: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Base Reset & Typography */
@@ -46,83 +53,78 @@ body {
     background-color: var(--bg-app);
     font-family: var(--font-sans);
     color: var(--text-body);
-    line-height: 1.65;
-    /* Generous leading for readability */
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: flex;
     justify-content: center;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
+    min-height: 100vh;
 }
 
 /* The Page - Magazine Quality */
 .page-container {
     background: var(--bg-paper);
     width: 100%;
+    /* A4 Width approx */
     max-width: 210mm;
     min-height: 297mm;
-    padding: 4rem 4rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-    /* Soft, diffusive shadow */
+    padding: 3rem 4rem;
+    /* Balanced margins */
+    box-shadow: var(--shadow-medium);
     position: relative;
+    border-radius: 2px;
+    /* Subtle crisp finish */
 }
 
 /* Header - Asymmetrical & Impactful */
 header {
-    margin-bottom: var(--space-6);
-    border-bottom: 2px solid var(--text-primary);
-    /* Strong grounding line */
-    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-5);
+    /* No border bottom for header, let whitespace do the work */
 }
 
 h1 {
     font-family: var(--font-serif);
-    font-size: 3rem;
+    font-size: 3.5rem;
+    /* Larger, more impact */
     font-weight: 700;
     color: var(--text-primary);
-    line-height: 1.1;
-    margin-bottom: var(--space-2);
-    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.03em;
 }
 
 .job-title-header {
     font-family: var(--font-sans);
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-size: 1.25rem;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     color: var(--text-meta);
     margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border-light);
+    display: inline-block;
+    padding-bottom: 0.5rem;
 }
 
 .contact-info {
     display: flex;
-    gap: var(--space-4);
-    font-size: 0.9rem;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    font-size: 0.95rem;
     color: var(--text-body);
-    font-weight: 500;
+    font-weight: 400;
+    margin-top: var(--space-2);
 }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.contact-item i {
-    color: var(--text-primary);
-    /* Strong icons */
-    font-size: 1rem;
-}
-
-.contact-item a {
+.contact-info a {
     color: var(--text-body);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--border-light);
     transition: all 0.2s;
 }
 
-.contact-item a:hover {
+.contact-info a:hover {
     color: var(--accent);
     border-bottom-color: var(--accent);
 }
@@ -135,112 +137,67 @@ section {
 /* Section Headings */
 h2 {
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     color: var(--text-primary);
     margin-bottom: var(--space-4);
-    display: block;
-    border-bottom: 1px solid var(--border-light);
-    /* Full width divider */
-    padding-bottom: var(--space-2);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-/* Grid Layout for Entries */
-/* This aligns "Dates" on left column (25%) and "Content" on right (75%) */
+h2::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-light);
+}
+
+/* Entries Layout */
 .job-entry,
 .edu-entry,
 .project-entry {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    /* Fixed width for dates */
-    gap: var(--space-4);
     margin-bottom: var(--space-4);
+    /* For print safety, ensure we don't break inside entries if possible */
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* Entry Header (Top Line: Role/Project & Dates) */
+.entry-header {
+    display: flex;
+    justify-content: space-between;
     align-items: baseline;
+    margin-bottom: 0.25rem;
 }
 
-.job-meta,
-.edu-meta,
-.project-meta {
-    /* These were flex containers, now we split them visually via grid */
-    display: contents;
-    /* Allows children to participate in the parent grid */
-}
-
-/* Dates Column */
-.job-meta .dates,
-.edu-meta .dates,
-.project-meta .dates {
-    grid-column: 1;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--text-meta);
-    font-weight: 500;
-    text-align: left;
-    margin-top: 0.2rem;
-    /* Visual alignment fix */
-}
-
-/* Content Column Container */
-.entry-content {
-    grid-column: 2;
-}
-
-/* Handle the case where I need to wrap title/company together in HTML for this grid to work perfectly. 
-   Since I can't easily change HTML structure to group them without complex RegEx, 
-   I will use a simpler layout that doesn't require "display: contents" on everything if HTML isn't 100% rigid.
-   
-   Wait, the HTML structure is: 
-   .job-entry > .job-meta (+dates) 
-              > .company-name
-              > ul
-   
-   Let's stick to a robust Flex/Margin approach that mimics grid for safety.
-*/
-
-.job-entry,
-.edu-entry,
-.project-entry {
-    display: block;
-    /* Reset grid to fallback */
-    padding-left: 160px;
-    /* Indent content */
-    position: relative;
-    margin-bottom: 2.5rem;
-}
-
-/* Position Dates Absolute Left */
-.dates {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 140px;
-    font-size: 0.85rem;
-    color: var(--text-meta);
-    font-weight: 500;
-    font-feature-settings: "tnum";
-    text-align: right;
-    /* Right align dates against the content gutter */
-}
-
-/* Title Styling */
-.job-meta span:first-child,
-.edu-meta span:first-child,
-.project-title {
-    display: block;
+.job-entry h3,
+.project-entry h3,
+.edu-entry h3 {
     font-family: var(--font-serif);
-    font-size: 1.15rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: var(--text-primary);
     line-height: 1.2;
-    margin-bottom: var(--space-1);
 }
 
+.dates {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-meta);
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* Subtitle (Company/Institution) */
 .company-name,
 .project-subtitle {
-    display: block;
-    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
     color: var(--text-body);
     font-weight: 500;
     margin-bottom: var(--space-2);
@@ -249,113 +206,213 @@ h2 {
 /* List Styling */
 ul {
     list-style: none;
-    margin-top: var(--space-2);
+    margin-top: 0.5rem;
 }
 
 li {
     position: relative;
     padding-left: 1.25rem;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
     font-size: 0.95rem;
     color: var(--text-body);
+    line-height: 1.5;
 }
 
-/* Elegant Dash Bullet */
+/* Elegant Bullet */
 li::before {
-    content: '—';
-    /* Em dash */
+    content: '•';
     position: absolute;
     left: 0;
     color: var(--text-subtle);
+    /* Softer bullet */
+    font-weight: bold;
 }
 
-/* Skills - Clean Grid */
+/* Skills Grid */
 .skills-grid {
     display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 1.5rem;
-    margin-top: var(--space-4);
-}
-
-.skills-column {
-    display: contents;
-    /* Flattens structure */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
 .skills-column h3 {
     font-family: var(--font-sans);
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-primary);
-    text-align: right;
-    margin-top: 0.4rem;
-}
-
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-meta);
+    margin-bottom: 0.75rem;
 }
 
 .skills-list li {
-    padding: 0;
-    margin: 0;
-    font-size: 0.95rem;
-    color: var(--text-body);
-    background: none;
-    border: none;
-    display: inline-block;
+    padding-left: 0;
+    margin-bottom: 0.25rem;
 }
 
 .skills-list li::before {
     content: none;
 }
 
-/* Separator for skills in inline list style feels nice */
+/* Modern Tag-like Skills (Text-based, clean) */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+
+.skills-list li {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    position: relative;
+}
+
 .skills-list li:not(:last-child)::after {
-    content: '/';
-    margin-left: 0.6rem;
-    color: var(--text-subtle);
+    content: "/";
+    margin-left: 1rem;
+    color: var(--border-light);
 }
 
 /* Summary Text */
 #summary p {
     font-family: var(--font-serif);
-    /* Serif for summary feels personal */
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-body);
-    line-height: 1.8;
-    max-width: 90%;
-    /* Optimal reading line length */
+    line-height: 1.7;
+    text-align: justify;
 }
 
-/* Print Optimization */
+/* Download Button (Floating) */
+.download-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--text-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-floating);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15);
+    background-color: black;
+}
+
+.download-btn i {
+    font-size: 1.2rem;
+}
+
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+        background: var(--bg-paper);
+    }
+
+    .page-container {
+        padding: 2rem 1.5rem;
+        box-shadow: none;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .entry-header {
+        flex-direction: column;
+    }
+
+    .dates {
+        text-align: left;
+        color: var(--text-meta);
+        margin-bottom: 0.25rem;
+        font-size: 0.85rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .download-btn {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* Print Optimization - The Critical Part for "Download as PDF" */
 @media print {
+    @page {
+        margin: 0;
+        size: auto;
+    }
+
     body {
         background: white;
         padding: 0;
         display: block;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
     .page-container {
         box-shadow: none;
-        padding: 0;
-        max-width: 100%;
+        margin: 0;
         width: 100%;
+        max-width: 100%;
+        padding: 1.5cm 1.5cm;
+        /* Standard print margins */
         min-height: auto;
     }
 
-    h2 {
-        border-bottom-color: #000;
+    .download-btn {
+        display: none !important;
     }
 
-    .dates {
+    /* Ensure text colors are stark black for legibility */
+    h1,
+    h2,
+    h3,
+    .company-name,
+    .project-subtitle {
         color: #000;
+    }
+
+    p,
+    li,
+    .contact-info,
+    .dates {
+        color: #333;
     }
 
     a {
         text-decoration: none;
         color: #000;
+        /* No blue links in print */
+    }
+
+    /* Avoid breaking elements */
+    h2,
+    h3,
+    .dates,
+    .company-name {
+        break-after: avoid;
+        page-break-after: avoid;
     }
 
     .job-entry,

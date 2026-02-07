@@ -42,8 +42,8 @@
                 <h2>Work Experience</h2>
 
                 <div class="job-entry">
-                    <div class="job-meta">
-                        <span>Computer Lab Assistant</span>
+                    <div class="entry-header">
+                        <h3>Computer Lab Assistant</h3>
                         <span class="dates">2022 - Present</span>
                     </div>
                     <!-- Updated with company-name class for premium styling -->
@@ -62,8 +62,8 @@
                 <h2>Relevant Projects</h2>
 
                 <div class="project-entry">
-                    <div class="project-meta">
-                        <span class="project-title">FundiConnect</span>
+                    <div class="entry-header">
+                        <h3>FundiConnect</h3>
                         <span class="dates">Power Learn Project Hackathon</span>
                     </div>
                     <ul>
@@ -75,8 +75,8 @@
                 </div>
 
                 <div class="project-entry" style="margin-top: 1rem;">
-                    <div class="project-meta">
-                        <span class="project-title">Uplift_One</span>
+                    <div class="entry-header">
+                        <h3>Uplift_One</h3>
                         <span class="dates">Personal Project</span>
                     </div>
                     <ul>
@@ -92,16 +92,16 @@
                 <h2>Education</h2>
 
                 <div class="edu-entry">
-                    <div class="edu-meta">
-                        <span>Certificate AI for Software Engineering</span>
+                    <div class="entry-header">
+                        <h3>Certificate AI for Software Engineering</h3>
                         <span class="dates">Feb 2025 - Aug 2025</span>
                     </div>
                     <div class="company-name">Power Learn Project</div>
                 </div>
 
                 <div class="edu-entry" style="margin-top: 1rem;">
-                    <div class="edu-meta">
-                        <span>Cloud Practitioner Certification</span>
+                    <div class="entry-header">
+                        <h3>Cloud Practitioner Certification</h3>
                         <span class="dates">Jun 2025 - Sep 2025</span>
                     </div>
                     <div class="company-name">Ajira Digital Programme</div>
@@ -138,6 +138,17 @@
             </section>
         </main>
     </div>
+    <button id="download-pdf" class="download-btn" onclick="window.print()" title="Download as PDF">
+        <i class="ph ph-download-simple"></i>
+        <span>Download PDF</span>
+    </button>
+
+    <script>
+        // Optional: formatting for print
+        window.onbeforeprint = function () {
+            console.log("Preparing for print...");
+        };
+    </script>
 </body>
 
 </html>
