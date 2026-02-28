@@ -1,28 +1,21 @@
 "use client";
 import { type FC, useState, useEffect } from "react";
+import { ChevronUp } from "lucide-react";
 
 const ScrollToTop: FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 300);
     };
 
     window.addEventListener("scroll", toggleVisibility);
-
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -30,23 +23,10 @@ const ScrollToTop: FC = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-blue-600 dark:bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-700 dark:hover:bg-blue-600 hover:shadow-xl transform hover:scale-110 transition-all duration-300"
+          className="fixed bottom-8 left-8 z-40 w-12 h-12 flex items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--card-bg)] text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all shadow-lg"
           aria-label="Scroll to top"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
+          <ChevronUp size={24} />
         </button>
       )}
     </>

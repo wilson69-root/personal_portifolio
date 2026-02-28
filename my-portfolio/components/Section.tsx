@@ -10,10 +10,14 @@ type SectionProps = PropsWithChildren<{
 const Section = forwardRef<HTMLDivElement, SectionProps>(
   ({ title, children, className = "", id }, ref) => {
     return (
-      <section ref={ref} id={id} className={`px-4 sm:px-8 ${className}`}>
+      <section
+        ref={ref}
+        id={id}
+        className={`px-6 sm:px-8 py-24 sm:py-32 ${className}`}
+      >
         <FadeIn>
           {title && (
-            <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-10 text-center transition-colors duration-300">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[var(--foreground)] mb-16 text-center tracking-tight">
               {title}
             </h2>
           )}
