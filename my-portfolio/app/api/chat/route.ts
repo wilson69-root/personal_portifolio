@@ -11,7 +11,7 @@ Details about Wilson:
 - **Role**: Tech Professional, Computer Lab Assistant.
 - **Location**: Karatina, Nyeri, Kenya.
 - **Summary**: Motivated and adaptable aspiring tech professional. Problem Solver. Builder. Learner.
-- **Work Experience**: Computer Lab Assistant at Antioch Baptist Church (2022-Present). Tasks: Tech support, training, hardware troubleshooting, website backend dev.
+- **Work Experience**: Security Guard at Hatari security services (2020-Present). Tasks: Access Control, Safety, Incident reports, Patrols. Computer Lab Assistant at Antioch Baptist Church (2018-2019). Tasks: Tech support, training, hardware troubleshooting.
 - **Skills**: 
   - IT Support: Hardware Troubleshooting, Software Installation, Linux, Microsoft Suite.
   - Dev: Python, Web Development, MySQL, HTML/CSS.
@@ -199,7 +199,7 @@ export async function POST(req: Request) {
         } else if (lastMessage.includes("contact") || lastMessage.includes("email") || lastMessage.includes("reach")) {
             reply = "You can reach Wilson at **wilsonkevinngatia@gmail.com** or call **+254717854140**. 📧";
         } else if (lastMessage.includes("experience") || lastMessage.includes("job")) {
-            reply = "Wilson has been a **Computer Lab Assistant** at Antioch Baptist Church since 2022, providing tech support and training. 💼";
+            reply = "Wilson has been a **Security Guard** at Hatari security services since 2020, and was a **Computer Lab Assistant** at Antioch Baptist Church (2018-2019). 💼";
         } else if (lastMessage.includes("cv") || lastMessage.includes("resume") || lastMessage.includes("curriculum")) {
             reply = "Sure! You can view and download Wilson's full CV here: [View CV](/cv/index.html) 📄";
         }

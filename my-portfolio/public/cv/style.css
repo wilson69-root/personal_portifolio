@@ -329,6 +329,38 @@ li::before {
     /* Optimal reading line length */
 }
 
+/* Download Button (Floating) */
+.download-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--text-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.15);
+    background-color: black;
+}
+
+.download-btn i {
+    font-size: 1.2rem;
+}
+
 /* Print Optimization */
 @media print {
     body {
@@ -343,6 +375,10 @@ li::before {
         max-width: 100%;
         width: 100%;
         min-height: auto;
+    }
+
+    .download-btn {
+        display: none !important;
     }
 
     h2 {

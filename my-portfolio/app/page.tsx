@@ -159,7 +159,37 @@ const HomePage: FC = () => {
 
       {/* Work Experience Section */}
       <Section title="💼 Work Experience" className="bg-[var(--card-bg)] border-y border-[var(--border)]">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <div className="border border-[var(--border)] rounded-xl p-8 bg-[var(--background)]">
+            <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+              <div>
+                <h3 className="text-2xl font-bold text-[var(--foreground)] mb-1">Security Guard</h3>
+                <p className="text-[var(--accent)] font-medium">Hatari security services</p>
+              </div>
+              <span className="px-3 py-1 text-sm font-medium text-[var(--muted)] bg-[var(--card-bg)] rounded-md border border-[var(--border)] w-fit">
+                2020 - Present
+              </span>
+            </div>
+            <ul className="space-y-3 text-[var(--muted)]">
+              <li className="flex items-start gap-3">
+                <span className="text-[var(--accent)] mt-1">•</span>
+                <span>Access Control and Monitoring</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[var(--accent)] mt-1">•</span>
+                <span>Ensuring the safety of personnel, property, and assets</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[var(--accent)] mt-1">•</span>
+                <span>Maintaining Incident reports</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[var(--accent)] mt-1">•</span>
+                <span>Conducting patrols and inspections</span>
+              </li>
+            </ul>
+          </div>
+
           <div className="border border-[var(--border)] rounded-xl p-8 bg-[var(--background)]">
             <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
               <div>
@@ -167,7 +197,7 @@ const HomePage: FC = () => {
                 <p className="text-[var(--accent)] font-medium">Antioch Baptist Church Computer Labs</p>
               </div>
               <span className="px-3 py-1 text-sm font-medium text-[var(--muted)] bg-[var(--card-bg)] rounded-md border border-[var(--border)] w-fit">
-                2022 - Present
+                2018 - 2019
               </span>
             </div>
             <ul className="space-y-3 text-[var(--muted)]">
